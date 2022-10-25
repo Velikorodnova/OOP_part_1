@@ -10,6 +10,11 @@ public class Human {
         this.town = town;
         this.job = job;
 
+        if (town == null || town.isEmpty()) {
+            this.town = "(Информация не указана)";
+        } else {
+            this.town = town;
+        }
         if (dateOfBirth >= 0) {
             this.dateOfBirth = dateOfBirth;
         } else {
@@ -20,18 +25,37 @@ public class Human {
         } else {
             this.name = name;
         }
-        if (town == null || town == "") {
-            this.town = "(Информация не указана)";
-        } else {
-            this.town = town;
-        }
+
         if (job == null || job == "") {
             this.job = "(Информация не указана)";
         } else {
             this.job = job;
         }
+    }
 
+    public int getDateOfBirth() {
+        return dateOfBirth;
+    }
 
+    public void setDateOfBirth(int dateOfBirth) {
+        if (dateOfBirth != 0) {
+            this.dateOfBirth = dateOfBirth;
+        } else {
+            this.dateOfBirth = Integer.parseInt("Информация не указана");
+        }
+
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        if (town != null || !town.isEmpty()) {
+            this.town = town;
+        } else {
+            this.town = "Информация не указана";
+        }
     }
 
     public String toString() {
